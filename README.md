@@ -149,6 +149,10 @@ You also can reuse an entire endpoint:
   use: /api/v1/customers/:oid
 ```
 
+### Bugs
+
+Please use the [Project Issues](https://github.com/pcs980/express-hateoas-yml/issues) page to report bugs or send suggestions.
+
 ### License
 
 Licended under [ISC License](LICENSE) © Paulo César da Silva
