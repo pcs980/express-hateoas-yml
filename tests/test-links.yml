@@ -26,6 +26,8 @@
   use: /api/v1/customers/:oid
 /api/v1/customers/:uuid:
   use: /api/v1/customers/:oid
+/api/v1/customers/:number:
+  use: /api/v1/customers/:oid
 /api/v1/customers/:oid/sales:
   GET:
     - rel: self

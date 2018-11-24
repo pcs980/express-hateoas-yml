@@ -134,6 +134,28 @@ describe('>>> Test links', () => {
             });
     });
 
+    it('should recognize when receives a number', done => {
+        app.get('/api/v1/customers/:customer', (req, res) => {
+            res.status(200).json({
+                data: {
+                    uuid: '12345',
+                    name: 'Some Body',
+                    email: 'somebody@somewhere.com'
+                }
+            });
+        });
+
+        request
+            .get('/api/v1/customers/12345')
+            .expect(200)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('_links').to.be.an('array').to.have.length(3);
+                done();
+            });
+    });
+
     it('should replace placeholders', done => {
         const body = {
             name: 'Paulo',

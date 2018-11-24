@@ -1,6 +1,6 @@
 # Express HATEOAS with YML
 
-This package will generate HATEOAS links automatically based on a configuration file.
+This package will generate HATEOAS links automatically based on a configuration file and is based on [express-hateoas-links](https://www.npmjs.com/package/express-hateoas-links) by John Doherty.
 
 &nbsp;
 ## Install
