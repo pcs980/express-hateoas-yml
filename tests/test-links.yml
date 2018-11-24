@@ -1,0 +1,38 @@
+/api/v1/customers:
+  POST:
+    - rel: customers
+      method: GET
+      href: /api/v1/customers/:1
+  GET:
+    - rel: birthtoday
+      method: GET
+      href: /api/v1/customers/birthtoday
+  PUT:
+    use: POST
+/api/v1/customers/:oid:
+  PUT:
+    use: GET
+  GET:
+    - rel: sales
+      method: GET
+      href: /api/v1/customers/:1/sales
+    - rel: self
+      method: DELETE
+      href: /api/v1/customers/:1
+    - rel: self
+      method: PUT
+      href: /api/v1/customers/:1
+/api/v1/customers/:email:
+  use: /api/v1/customers/:oid
+/api/v1/customers/:uuid:
+  use: /api/v1/customers/:oid
+/api/v1/customers/:oid/sales:
+  GET:
+    - rel: self
+      method: GET
+      href: /api/v1/customers/:1
+/api/v1/products:
+  GET:
+    - rel: self
+      method: POST
+      href: /api/v1/products
