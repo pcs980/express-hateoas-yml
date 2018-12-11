@@ -22,7 +22,32 @@ describe('>>> Test links', () => {
         app.close;
     });
 
-    it('should return links', done => {
+    it('should not return related links', done => {
+        app.get('/api/v1/sales', (req, res) => {
+            res.status(200).json({
+                data: [
+                    {
+                        date: '2018-12-11',
+                        totalValue: '154.99',
+                        customerName: 'Paulo',
+                        customerId: '1234567'
+                    }
+                ]
+            });
+        });
+
+        request
+            .get('/api/v1/sales')
+            .expect(200)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.not.have.property('_links');
+                done();
+            });
+    });
+
+    it('should return related links', done => {
         app.get('/api/v1/customers', (req, res) => {
             res.status(200).json({
                 data: [

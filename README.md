@@ -1,5 +1,14 @@
 # Express HATEOAS with YML
 
+
+[![downloads](https://img.shields.io/npm/dt/express-hateoas-yml.svg)](https://www.npmjs.com/package/express-hateoas-yml)
+[![Coverage Status](https://coveralls.io/repos/github/pcs980/express-hateoas-yml/badge.svg?branch=master)](https://coveralls.io/github/pcs980/express-hateoas-yml?branch=master)
+[![Build Status](https://travis-ci.org/pcs980/express-hateoas-yml.svg?branch=master)](https://travis-ci.org/pcs980/express-hateoas-yml)
+[![Dependencies](https://img.shields.io/david/pcs980/express-hateoas-yml.svg)](https://www.npmjs.com/package/express-hateoas-yml)
+[![Dev Dependencies](https://img.shields.io/david/dev/pcs980/express-hateoas-yml.svg)](https://www.npmjs.com/package/express-hateoas-yml)
+[![Last commit](https://img.shields.io/github/last-commit/pcs980/express-hateoas-yml.svg)](https://www.npmjs.com/package/express-hateoas-yml)
+[![Linked In](https://img.shields.io/badge/Linked-In-blue.svg)](https://www.linkedin.com/in/pcs980)
+
 This package will generate HATEOAS links automatically based on a configuration file and is based on [express-hateoas-links](https://www.npmjs.com/package/express-hateoas-links) by John Doherty.
 
 &nbsp;
