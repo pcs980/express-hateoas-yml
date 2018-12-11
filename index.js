@@ -30,7 +30,7 @@ module.exports = (req, res, next, options) => {
             for (const link in links) {
                 links[link].href = getHostUrl(req) + links[link].href.replace(':1', params[0]);
             }
-            const propertyName = (options.propertyName ? options.propertyName : '_links');
+            const propertyName = (options.propertyName && options.propertyName.length > 0 ? options.propertyName : '_links');
             jsonObject[propertyName] = links;
         }
         res.json(jsonObject);

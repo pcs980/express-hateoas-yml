@@ -127,7 +127,7 @@ It's possible to reuse other definition within the original URL.
     use: POST
 ```
 
-You also can reuse an entire endpoint:
+You also can reuse an entire endpoint as shown below where a PUT request will return all related links of GET requests:
 
 ```yml
 /api/v1/customers/:oid:
@@ -149,10 +149,21 @@ You also can reuse an entire endpoint:
   use: /api/v1/customers/:oid
 ```
 
-### Bugs
+### Property name
+
+By default the related links in the response object will be inside the property named `_links` as indicative of a metadata. But you can change it's name by setting a `propertyName` in options object:
+
+```javascript
+const hateoasOptions = {
+    linksFile: path.join(__dirname, 'libs/links.yml'),
+    propertyName: 'links'
+};
+```
+
+## Bugs
 
 Please use the [Project Issues](https://github.com/pcs980/express-hateoas-yml/issues) page to report bugs or send suggestions.
 
-### License
+## License
 
 Licended under [ISC License](LICENSE) © Paulo César da Silva

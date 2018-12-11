@@ -11,14 +11,14 @@ describe('>>> Test links', () => {
 
     const hateoas = require('../index');
     const hateoasOptions = {
-        linksFile: path.join(__dirname, 'test-links.yml')
+        linksFile: path.join(__dirname, 'test-links.yml'),
     };
 
     beforeEach(() => {
         app.use('*', (req, res, next) => hateoas(req, res, next, hateoasOptions));
     });
 
-    afterEach(() => {
+    after(() => {
         app.close;
     });
 
@@ -175,6 +175,43 @@ describe('>>> Test links', () => {
             .end((err, res) => {
                 if (err) return done(err);
                 expect(res.body).to.have.property('_links');
+                done();
+            });
+    });
+
+    it('should allow change property name', done => {
+        const applic = express();
+
+        const newHateoas = require('../index');
+        const newOptions = {
+            linksFile: path.join(__dirname, 'test-links.yml'),
+            propertyName: 'related'
+        };
+    
+        applic.use('*', (req, res, next) => newHateoas(req, res, next, newOptions));
+
+        applic.get('/api/v1/customers', (req, res) => {
+            res.status(200).json({
+                data: [
+                    {
+                        name: 'Paulo'
+                    },
+                    {
+                        name: 'Valquiria'
+                    }
+                ]
+            });
+        });
+
+        const requester = supertest(applic);
+
+        requester
+            .get('/api/v1/customers')
+            .expect(200)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('related').to.be.an('array').to.have.length(1);
                 done();
             });
     });
