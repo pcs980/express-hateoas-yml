@@ -22,7 +22,7 @@ describe('>>> Test links', () => {
         app.close;
     });
 
-    it('should not return related links', done => {
+    it('should not return related links when the endpoint is not defined', done => {
         app.get('/api/v1/sales', (req, res) => {
             res.status(200).json({
                 data: [
@@ -38,6 +38,26 @@ describe('>>> Test links', () => {
 
         request
             .get('/api/v1/sales')
+            .expect(200)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.not.have.property('_links');
+                done();
+            });
+    });
+
+    it('should not return related links when the method is not defined', done => {
+        app.delete('/api/v1/customers', (req, res) => {
+            res.status(200).json({
+                data: {
+                    deleted: '1'
+                }
+            });
+        });
+
+        request
+            .delete('/api/v1/customers')
             .expect(200)
             .end((err, res) => {
                 if (err) return done(err);
@@ -68,6 +88,26 @@ describe('>>> Test links', () => {
                 if (err) return done(err);
                 expect(res.body).to.have.property('data');
                 expect(res.body).to.have.property('_links').to.be.an('array').to.have.length(1);
+                done();
+            });
+    });
+
+    it('should reuse related links', done => {
+        app.put('/api/v1/customers/563479cc8a8a4246bd27d784', (req, res) => {
+            res.status(200).json({
+                data: {
+                    name: 'Paulo'
+                },
+            });
+        });
+
+        request
+            .put('/api/v1/customers/563479cc8a8a4246bd27d784')
+            .expect(200)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).to.have.property('data');
+                expect(res.body).to.have.property('_links').to.be.an('array').to.have.length(3);
                 done();
             });
     });
