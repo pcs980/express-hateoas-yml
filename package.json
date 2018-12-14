@@ -9,9 +9,11 @@
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
+    "node",
     "express",
     "hateoas",
     "links",
+    "related",
     "yaml",
     "yml"
   ],
@@ -30,6 +32,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
+    "eslint": "^5.10.0",
     "express": "^4.16.4",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
