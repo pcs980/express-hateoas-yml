@@ -3,6 +3,16 @@
 Keep track of project's important changes using format based on [Keep a Changelog](https://keepachangelog.com).
 This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- ESLint.
+
+### Changed
+
+- Package keywords.
+
 ## [1.7.2] - 2018-12-11
 
 ### Added
