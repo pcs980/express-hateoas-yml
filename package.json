@@ -5,8 +5,8 @@
   "main": "index.js",
   "author": "Paulo César da Silva <paulocsmg@gmail.com>",
   "scripts": {
-    "test": "mocha --opts tests/mocha.opts --recursive ./tests/**/*.js --exit",
-    "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "test": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "devtest": "mocha --opts tests/mocha.opts --recursive ./tests/**/*.js --exit"
   },
   "keywords": [
     "node",
