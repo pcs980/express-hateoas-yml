@@ -3,6 +3,12 @@
 Keep track of project's important changes using format based on [Keep a Changelog](https://keepachangelog.com).
 This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.3] - 2018-12-17
+
+### Fixed
+
+- Test script.
+
 ## [1.8.2] - 2018-12-17
 
 ### Added
