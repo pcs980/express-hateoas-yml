@@ -1,6 +1,6 @@
 {
   "name": "express-hateoas-yml",
-  "version": "1.8.2",
+  "version": "1.9.2",
   "description": "This package will generate HATEOAS links automatically based on a configuration file.",
   "main": "index.js",
   "author": "Paulo César da Silva <paulocsmg@gmail.com>",
