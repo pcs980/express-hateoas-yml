@@ -6,7 +6,8 @@
   "author": "Paulo César da Silva <paulocsmg@gmail.com>",
   "scripts": {
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "test": "mocha --opts tests/mocha.opts --recursive ./tests/**/*.js --exit"
+    "test": "mocha --opts tests/mocha.opts --recursive ./tests/**/*.js --exit",
+    "lint": "eslint '**/*.js' --debug"
   },
   "keywords": [
     "node",
