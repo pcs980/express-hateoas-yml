@@ -24,7 +24,7 @@ module.exports = (req, res, next, options) => {
 
     res.json = (object, ...params) => {
         let jsonObject = JSON.parse(JSON.stringify(object));
-        res.json = jsonOriginal;        
+        res.json = jsonOriginal;
         
         if (links.length > 0 && res.statusCode < 400) {
             for (const link in links) {

@@ -27,7 +27,7 @@ yarn add express-hateoas-yml
 
 ## Use
 
-Declare and specity the path for a YML/YAML file:
+Declare and specity the path for the YML/YAML file with the related links:
 
 ```js
 const hateoas = require('express-hateoas-yml');
@@ -35,6 +35,8 @@ const hateoasOptions = {
     linksFile: path.join(__dirname, 'libs/links.yml')
 };
 ```
+
+In the [Examples](#examples) section you'll find examples of how to configure related links.
 
 Add the middleware to Express:
 
@@ -164,6 +166,57 @@ const hateoasOptions = {
     linksFile: path.join(__dirname, 'libs/links.yml'),
     propertyName: 'links'
 };
+```
+
+### Additional data
+
+You can add any extra information within the related link item and it will be included in the response as you can see below:
+
+```yml
+/api/v1/customers/:oid:
+  PUT:
+    use: GET
+  GET:
+    - rel: sales
+      method: GET
+      description: Get all customer's orders
+      href: /api/v1/customers/:1/sales
+    - rel: self
+      method: DELETE
+      warning: Delete this customer permanently
+      href: /api/v1/customers/:1
+    - rel: self
+      method: PUT
+      href: /api/v1/customers/:1
+```
+
+Below the result with extra information `description` and `warning` 
+
+```json
+{
+    "active": true,
+    "_id": "5c1be67e55087519a29065e6",
+    "name": "Paulo",
+    "_links": [
+        {
+            "rel": "sales",
+            "method": "GET",
+            "description": "Get all customer's orders",
+            "href": "http://localhost:3000/api/v1/customers/5c1be67e55087519a29065e6/sales"
+        },
+        {
+            "rel": "self",
+            "method": "DELETE",
+            "warning": "Delete this customer permanently",
+            "href": "http://localhost:3000/api/v1/customers/5c1be67e55087519a29065e6"
+        },
+        {
+            "rel": "self",
+            "method": "PUT",
+            "href": "http://localhost:3000/api/v1/customers/5c1be67e55087519a29065e6"
+        }
+    ]
+}
 ```
 
 ## Bugs

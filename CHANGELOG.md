@@ -3,6 +3,12 @@
 Keep track of project's important changes using format based on [Keep a Changelog](https://keepachangelog.com).
 This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0] - 2018-12-20
+
+### Changed
+
+- Describe 'Additional data' feature in README.
+
 ## [1.9.3] - 2018-12-17
 
 ### Fixed
