@@ -3,13 +3,16 @@
 Keep track of project's important changes using format based on [Keep a Changelog](https://keepachangelog.com).
 This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.11.0] - 2019-04-04
+## [1.11.1] - 2019-04-04
 
 ### Changed
 
 - Improve README.
-- Dependencies updated.
 - Add linting script.
+
+### Fixed
+
+- Dependencies updated.
 
 ## [1.10.0] - 2018-12-20
 

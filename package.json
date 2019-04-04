@@ -1,6 +1,6 @@
 {
   "name": "express-hateoas-yml",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "This package will generate HATEOAS links automatically based on a configuration file.",
   "main": "index.js",
   "author": {
@@ -30,7 +30,7 @@
     "url": "https://github.com/pcs980/express-hateoas-yml/issues"
   },
   "dependencies": {
-    "fs": "0.0.1-security",
+    "fs": "0.0.2",
     "js-yaml": "^3.13.0"
   },
   "devDependencies": {
