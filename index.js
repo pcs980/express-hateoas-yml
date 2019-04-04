@@ -7,7 +7,6 @@ const validUtil = require('./libs/validUtil');
 
 module.exports = (req, res, next, options) => {
     const endpoint = prepareOriginalUrl(req.originalUrl);
-    
     const config = yaml.safeLoad(fs.readFileSync(options.linksFile, 'utf8'));
     let links = [];
 
@@ -25,7 +24,7 @@ module.exports = (req, res, next, options) => {
     res.json = (object, ...params) => {
         let jsonObject = JSON.parse(JSON.stringify(object));
         res.json = jsonOriginal;
-        
+
         if (links.length > 0 && res.statusCode < 400) {
             for (const link in links) {
                 links[link].href = getHostUrl(req) + links[link].href.replace(':1', params[0]);
@@ -39,9 +38,7 @@ module.exports = (req, res, next, options) => {
     next();
 };
 
-const getHostUrl = (req) => {
-    return req.protocol + '://' + req.get('host');
-};
+const getHostUrl = (req) => req.protocol + '://' + req.get('host');
 
 const prepareOriginalUrl = (url) => {
     let paths = url.split('/');

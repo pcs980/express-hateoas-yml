@@ -69,8 +69,8 @@ rules:
   keyword-spacing: error
   line-comment-position: error
   linebreak-style:
-    - error
-    - unix
+    - warn
+    - windows
   lines-around-comment: error
   lines-around-directive: error
   lines-between-class-members: error

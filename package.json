@@ -1,13 +1,16 @@
 {
   "name": "express-hateoas-yml",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "This package will generate HATEOAS links automatically based on a configuration file.",
   "main": "index.js",
-  "author": "Paulo César da Silva <paulocsmg@gmail.com>",
+  "author": {
+    "name": "Paulo César da Silva",
+    "email": "paulocsmg@gmail.com"
+  },
   "scripts": {
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "test": "mocha --opts tests/mocha.opts --recursive ./tests/**/*.js --exit",
-    "lint": "eslint '**/*.js' --debug"
+    "lint": "eslint **/*.js --debug"
   },
   "keywords": [
     "node",
@@ -28,15 +31,15 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "js-yaml": "^3.12.0"
+    "js-yaml": "^3.13.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "coveralls": "^3.0.2",
-    "eslint": "^5.10.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
     "express": "^4.16.4",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0",
-    "supertest": "^3.3.0"
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "supertest": "^4.0.2"
   }
 }

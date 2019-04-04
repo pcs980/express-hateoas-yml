@@ -61,7 +61,15 @@ In the following example we've a basic example where the a GET URL `/api/v1/cust
       href: /api/v1/customers/birthtoday
 ```
 
-Then the response body should includes the original data and the links:
+Send your response as usual:
+
+```js
+result.data = await controller.getAll();
+
+return res.status(200).json(result);
+```
+
+Then the response body should includes the original resultdata and the links:
 
 ```json
 {
@@ -80,7 +88,7 @@ Then the response body should includes the original data and the links:
         {
             "rel": "customers",
             "method": "GET",
-            "href": "http://localhost:3000/api/v1/birthtoday"
+            "href": "http://localhost:3000/api/v1/customers/birthtoday"
         }
     ]
 }
@@ -104,7 +112,7 @@ Then in the route code:
 // save the record as usually
 const data = await controller.save(req.body);
 
-// and put the record id as an additional parameters 
+// and put the record id as an additional parameters
 return res.status(201).json(data, data._id);
 ```
 
@@ -190,7 +198,7 @@ You can add any extra information within the related link item and it will be in
       href: /api/v1/customers/:1
 ```
 
-Below the result with extra information `description` and `warning` 
+Below the result with extra information `description` and `warning`
 
 ```json
 {
