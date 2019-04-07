@@ -3,6 +3,12 @@
 Keep track of project's important changes using format based on [Keep a Changelog](https://keepachangelog.com).
 This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.2] - 2019-04-07
+
+### Fixed
+
+- Outdated package-lock.json causing build error.
+
 ## [1.11.1] - 2019-04-04
 
 ### Changed
