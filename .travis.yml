@@ -2,7 +2,12 @@ language: node_js
 node_js:
   - "10"
   - "8"
-deploy:
-  provider: npm
-  email: $NPM_EMAIL
-  api_key: $NPM_API_KEY
+jobs:
+  include:
+    - stage: npm release
+      node_js: "10"
+      script: ' > deploying to npm...'
+      deploy:
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_API_KEY
