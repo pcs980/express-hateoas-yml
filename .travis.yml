@@ -8,7 +8,6 @@ addons:
 jobs:
   include:
     - stage: npm release
-      node_js: "10"
       deploy:
         provider: npm
         email: $NPM_EMAIL
