@@ -2,9 +2,6 @@ language: node_js
 node_js:
   - "10"
   - "8"
-addons:
-  code_climate:
-    repo_token: $CC_REPORTER_ID
 jobs:
   include:
     - stage: npm release
