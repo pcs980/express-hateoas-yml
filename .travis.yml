@@ -6,7 +6,6 @@ jobs:
   include:
     - stage: npm release
       node_js: "10"
-      script: ' > deploying to npm...'
       deploy:
         provider: npm
         email: $NPM_EMAIL
