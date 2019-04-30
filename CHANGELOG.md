@@ -8,6 +8,7 @@ This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Outdated package-lock.json causing build error.
+- Automated deploy from Travis to NPM.
 
 ## [1.11.1] - 2019-04-04
 
