@@ -11,12 +11,7 @@ module.exports = (req, res, next, options) => {
     let links = [];
 
     if (config[endpoint]) {
-        const usePath = (config[endpoint].use ? config[endpoint].use : endpoint);
-
-        if (config[usePath][req.method]) {
-            const useMethod = (config[usePath][req.method].use ? config[usePath][req.method].use : req.method);
-            links = config[usePath][useMethod];
-        }
+        links = getLinks(config, endpoint, req.method);
     }
 
     const jsonOriginal = res.json;
@@ -29,7 +24,7 @@ module.exports = (req, res, next, options) => {
             for (const link in links) {
                 links[link].href = getHostUrl(req) + links[link].href.replace(':1', params[0]);
             }
-            const propertyName = (options.propertyName && options.propertyName.length > 0 ? options.propertyName : '_links');
+            const propertyName = getPropertyName(options);
             jsonObject[propertyName] = links;
         }
         res.json(jsonObject);
@@ -39,6 +34,20 @@ module.exports = (req, res, next, options) => {
 };
 
 const getHostUrl = (req) => req.protocol + '://' + req.get('host');
+
+const getLinks = (config, endpoint, method) => {
+    const usePath = (config[endpoint].use ? config[endpoint].use : endpoint);
+
+    if (config[usePath][method]) {
+        const useMethod = (config[usePath][method].use ? config[usePath][method].use : method);
+        return config[usePath][useMethod];
+    }
+    return [];
+};
+
+const getPropertyName = (options) => {
+    return (options.propertyName && options.propertyName.length > 0 ? options.propertyName : '_links');
+};
 
 const prepareOriginalUrl = (url) => {
     let paths = url.split('/');

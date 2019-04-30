@@ -2,3 +2,11 @@ language: node_js
 node_js:
   - "10"
   - "8"
+jobs:
+  include:
+    - stage: npm release
+      if: branch = master
+      deploy:
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_API_KEY
