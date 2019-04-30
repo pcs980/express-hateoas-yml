@@ -2,9 +2,10 @@ language: node_js
 node_js:
   - "10"
   - "8"
-before_scripts:
+install:
   - npm install
-after_success:
+script:
+  - npm test
   - npm run coverage
 jobs:
   include:
