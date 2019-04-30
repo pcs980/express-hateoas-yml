@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - "10"
   - "8"
+before_scripts:
+  - npm install
+after_success:
+  - npm run coverage
 jobs:
   include:
     - stage: npm release
