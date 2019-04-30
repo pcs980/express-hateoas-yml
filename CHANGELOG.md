@@ -3,6 +3,13 @@
 Keep track of project's important changes using format based on [Keep a Changelog](https://keepachangelog.com).
 This project follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.3] - 2019-04-30
+
+### Fixed
+
+- Runs coverage tests on Travis CI.
+- Update dependencies.
+
 ## [1.11.2] - 2019-04-07
 
 ### Fixed
